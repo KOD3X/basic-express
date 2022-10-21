@@ -1,3 +1,5 @@
+'use strict';
+
 const users = [];
 let cont = 0;
 

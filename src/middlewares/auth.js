@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * To generate a secret you can use this line on a Node REPL:
  *     require('crypto').randomBytes(64).toString('hex');

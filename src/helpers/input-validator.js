@@ -1,3 +1,5 @@
+'use strict';
+
 exports.validateEmail = function (email) {
   if (!email) {
     const error = new Error("Email can't be empty");

@@ -1,6 +1,9 @@
+'use strict';
+
 // Load config
 const path = require('path');
 const dotenv = require('dotenv');
+
 dotenv.config({ path: path.resolve(__dirname, 'config/configuration.env') });
 dotenv.config({ path: path.resolve(__dirname, 'config/app.secrets') });
 

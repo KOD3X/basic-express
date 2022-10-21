@@ -1,3 +1,5 @@
+'use strict';
+
 const validator = require('../helpers/input-validator');
 const encrypter = require('../helpers/encrypter');
 const user_service = require('../services/user.service');
