@@ -21,6 +21,19 @@ app.use('/api', login_router);
 const user_router = require('./routers/user.router');
 app.use('/api', user_router);
 
+// Optional if you need a front
+app.use(express.static('src/public'));
+
+app.set('views', './src/views');
+app.set('view engine', 'pug');
+
+app.get('/', function (req, res) {
+  res.render('main.pug', {
+    message: 'Basic Express is working!',
+    fruits: ['Ulpiano', 'Carrasco', 'ulcarmar@gmail.com'],
+  });
+});
+
 // Error handler
 app.use((error, req, res, next) => {
   console.log(`Error: ${error.message}`);
