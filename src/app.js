@@ -11,6 +11,11 @@ dotenv.config({ path: path.resolve(__dirname, 'config/app.secrets') });
 const express = require('express');
 const app = express();
 
+// Create logger
+const morganMiddleware = require('./middlewares/morgan.middleware');
+const logger = require('./helpers/logger');
+app.use(morganMiddleware);
+
 // Main middlewares
 app.use(express.json());
 
@@ -36,7 +41,7 @@ app.get('/', function (req, res) {
 
 // Error handler
 app.use((error, req, res, next) => {
-  console.log(`Error: ${error.message}`);
+  logger.error(`Error: ${error.message}`);
 
   const status = error.status || 500;
 
@@ -48,6 +53,6 @@ const listener = app.listen(
   process.env.PORT || 3000,
   process.env.HOST || '0.0.0.0',
   () => {
-    console.log('The app is listening on port ' + listener.address().port);
+    logger.info('The app is listening on port ' + listener.address().port);
   }
 );

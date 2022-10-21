@@ -1,8 +1,10 @@
 'use strict';
 
+const logger = require('../helpers/logger');
+
 function sendEmail(from, to, subject, message) {
-  console.log(`Sending email from ${from} to ${to} with ${subject}`);
-  console.log('Message: ', message);
+  logger.debug(`Sending email from ${from} to ${to} with ${subject}`);
+  logger.debug(`Message:  ${message}`);
 }
 
 module.exports = {
