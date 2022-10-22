@@ -11,12 +11,16 @@ dotenv.config({ path: path.resolve(__dirname, 'config/app.secrets') });
 const express = require('express');
 const app = express();
 
-// Create logger
-const morganMiddleware = require('./middlewares/morgan.middleware');
+// Create app logger
 const logger = require('./helpers/logger');
+
+// Set middleware logger
+const morganMiddleware = require('./middlewares/morgan.middleware');
 app.use(morganMiddleware);
 
-// Main middlewares
+// Set main middlewares
+const cors = require('cors');
+app.use(cors());
 app.use(express.json());
 
 // Routers
@@ -48,7 +52,7 @@ app.use((error, req, res, next) => {
   res.status(status).json({ error: error.message });
 });
 
-// Server start
+// Start server
 const listener = app.listen(
   process.env.PORT || 3000,
   process.env.HOST || '0.0.0.0',
