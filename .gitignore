@@ -1,5 +1,6 @@
 node_modules
-
-src/config/*.secrets
-
 logs
+
+# Uncomment the line below, secrets should never be uploaded to the repository, it has been uploaded to make a complete example.
+
+# src/config/*.secrets
